@@ -1,0 +1,182 @@
+{include file="public/header" title="话梅" keywords="话梅管理系统"}
+	<script src="/static/assets/js/jquery-1.8.3.min.js"></script>
+    <div class="tpl-page-container tpl-page-header-fixed">
+	{include file="public/left"}
+
+        <div class="tpl-content-wrapper">
+            <div class="tpl-content-page-title">
+               话梅美妆
+            </div>
+            <ol class="am-breadcrumb">
+                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="#">话梅美妆</a></li>
+                <li class="am-active">添加产品模块</li>
+            </ol>
+            <div class="tpl-portlet-components">
+                <div class="portlet-title">
+                    <div class="caption font-green bold">
+                        <span class="am-icon-code"></span> 添加产品模块表单
+                    </div>
+                    <div class="tpl-portlet-input tpl-fz-ml">
+                        <div class="portlet-input input-small input-inline">
+                            <div class="input-icon right">
+                                <i class="am-icon-search"></i>
+                                <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
+                        </div>
+                    </div>
+
+
+                </div>
+				
+                <div class="tpl-block">
+
+                    <div class="am-g">
+                        <div class="tpl-form-body tpl-form-line">
+                            <form class="am-form tpl-form-line-form" action="{:url('all/doedit')}" enctype="multipart/form-data" method="post">
+                                <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">商品标题 <span class="tpl-form-line-small-title">Title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字" name="title" value="{$data.title}">
+                                        <input type="hidden" name="id" value="{$data.id}">
+										<small>请填写标题文字10-20字左右。</small>
+                                    </div>
+                                </div>
+								
+								<div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">副标题 <span class="tpl-form-line-small-title">Title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字" name="vice_heading" value="{$data.vice_heading}">
+                                        <small>请填写标题文字10-20字左右。</small>
+                                    </div>
+                                </div>
+								
+
+                        					
+								
+									<div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">选择模块 <span class="tpl-form-line-small-title">Module</span></label>
+                                    <div class="am-u-sm-9">
+                                       <select data-am-selected name="module" id="selectID">
+										  <option value="1" {if condition="$data.module eq '1'"} selected {/if}>添加产品模块</option>
+										  <option value="2" {if condition="$data.module eq '2'"} selected {/if}>添加公司模块</option>
+										  <option value="3" {if condition="$data.module eq '3'"} selected {/if}>添加招聘模块</option>
+										  <option value="4" {if condition="$data.module eq '4'"} selected {/if}>添加其它模块</option>
+										  <option value="5" {if condition="$data.module eq '5'"} selected {/if}>添加其它模块二</option>
+										</select>
+                                       
+                                    </div>
+                                </div>
+								
+									   <div class="am-form-group" id="div_show">
+								    <label for="user-email" class="am-u-sm-3 am-form-label"> <span class="tpl-form-line-small-title"></span></label>
+								  <div class="am-u-sm-9" id="selectTwo" style="display:{if condition='$data.module eq 5'}block{/if}">
+                                       <label class="am-radio-inline">
+										<input type="radio"  value="1" name="is_list"  {if condition="$data.is_list eq '1'"} checked {/if}> 详情页
+									  </label>
+									  <label class="am-radio-inline">
+										<input type="radio" value="2" name="is_list" {if condition="$data.is_list eq '2'"} checked {/if}> 列表页
+									  </label>
+                                    </div>
+								</div>
+								
+                      
+							    <div class="am-form-group">
+                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">主图 <span class="tpl-form-line-small-title">Images</span></label>
+                                    <div class="am-u-sm-9">
+                                        <div class="am-form-group am-form-file">
+                                            <div class="tpl-form-file-img">
+                                                <img src="/uploads/{$data.img}" alt="">
+                                            </div>
+                                            <button type="button" class="am-btn am-btn-danger am-btn-sm">
+    <i class="am-icon-cloud-upload"></i> 添加主图</button>
+									<input type="hidden" name="image_f" value="{$data.img}">
+                                            <input id="doc-form-file" type="file" multiple name="image">
+                                        </div>
+
+                                    </div>
+                                </div>
+								
+								    <div class="am-form-group">
+                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">副图 <span class="tpl-form-line-small-title">Images</span></label>
+                                    <div class="am-u-sm-9">
+                                        <div class="am-form-group am-form-file">
+                                            <div class="tpl-form-file-img">
+                                                <img src="/uploads/{$data.vice_img}" alt="">
+                                            </div>
+                                            <button type="button" class="am-btn am-btn-danger am-btn-sm">
+    <i class="am-icon-cloud-upload"></i> 添加副图</button>
+											<input type="hidden" name="image_t" value="{$data.vice_img}">
+                                            <input id="doc-form-file" type="file" multiple name="image2">
+                                        </div>
+
+                                    </div>
+                                </div>
+								
+									<div class="am-form-group">
+                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">导航图 <span class="tpl-form-line-small-title">Images</span></label>
+                                    <div class="am-u-sm-9">
+                                        <div class="am-form-group am-form-file">
+                                            <div class="tpl-form-file-img">
+                                                <img src="/uploads/{$data.nav_img}" alt="">
+                                            </div>
+                                            <button type="button" class="am-btn am-btn-danger am-btn-sm">
+    <i class="am-icon-cloud-upload"></i> 添加导航图片</button>
+											<input type="hidden" name="image_nav" value="{$data.nav_img}">
+                                            <input id="doc-form-file" type="file" multiple name="nav_img">
+                                        </div>
+
+                                    </div>
+                                </div>
+								
+		         
+
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+		
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="/static/assets/js/jquery.min.js"></script>
+    <script src="/static/assets/js/amazeui.min.js"></script>
+    <script src="/static/assets/js/app.js"></script>
+	<script language="javascript">
+	$(function(){
+		$('#div_show').hide();
+	})
+	$("#selectID").change(function(){
+		var val = $(this).val();
+		if(val==4||val==5){
+			$('#div_show').show();
+		}else{
+			$('#div_show').hide();
+		}
+	})
+       
+		 
+
+    </script>
+	<script type="text/javascript">
+	
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+
+	
+</script>
+</body>
+
+</html>

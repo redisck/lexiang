@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/admin/css/share.css" rel="stylesheet">
+
+  </head>
+  <body>
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand logo" href="#">话梅</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+          	<li><a href="#"><img src="/static/admin/img/nav_01.png"></a></li>
+            <li><a href="#">用户名</a></li>
+            <li><a href="#">|</a></li>
+            <li><a href="#">退出</a></li>
+          </ul>
+         
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+         {include file="public/left"}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+         	<div class="nav_html">
+         		<ul>
+         			<li>
+         				<div class="nav_top">
+         					<div class="left">
+         						 <a class="navbar-brand" href="#">公司</a>
+         					</div>
+         					<div class="right">
+         						<ul class="nav navbar-nav navbar-right">
+						            <li><a href="#">编辑</a></li>
+						            <li><a href="#" style="font-size: 20px;">|</a></li>
+						            <li><a href="#">保存</a></li>
+						        </ul>
+         					</div>
+         				</div>
+         				<div class="nav_bottom">
+         					<ul>
+         						<li>+模块名称</li>
+         						<li><input type="text" value=""> </li>
+         						<li>* 文字内容不超过6个字符</li>
+         					</ul>
+         				</div>
+         			</li>
+         			<li>
+         				<div class="nav_top content">
+         					<div class="left">
+         						 <a class="" href="#">
+								<img src="/static/admin/img/nav_09.png" width="20">
+         						 <span>分享选择</span></a>
+         					</div>
+         					<div class="right">
+         						<a>保存</a>
+         					</div>
+
+         				</div>
+         				<div class="bottom">
+         						<ul>
+                                    <li>
+                                        <div>
+                                            <img src="/static/admin/img/share_01.png">
+                                            <span>QQ</span>
+                                            <input type="checkbox">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <img src="/static/admin/img/share_02.png">
+                                            <span>微信</span>
+                                            <input type="checkbox">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <img src="/static/admin/img/share_03.png">
+                                            <span>微博</span>
+                                            <input type="checkbox">
+                                        </div>
+                                    </li>
+                                </ul>
+         				</div>
+         			</li>
+         			
+         			
+         		</ul>
+         	</div>
+        </div>
+      </div>
+    </div>
+
+    
+	<script src="/static/admin/js/jquery-1.12.4.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/static/admin/js/bootstrap.min.js"></script>
+  </body>
+</html>

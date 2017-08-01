@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZHdGEomOzdEXIrShGXCbblqdcjsB3h1L"></script>
+{load href="/static/assets/js/jquery.min.js"}
+<title>百度地图的定位</title>
+</head>
+<body>
+    <div id="allmap" style="width: 100%;height: 500px;"></div>
+
+	<div id="street">地址：</div>
+	
+	<a href="tel:400-600-500">拨打电话!</a>
+		<a href="sms:400-600-500">发送短信!</a>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(108.95,34.27);
+	//var street = document.getElementById("street");
+	var x=document.getElementById("street")
+	//alert(x.innerHTML)
+    map.centerAndZoom(point,12);
+	
+    var geolocation = new BMap.Geolocation();
+	//测试经纬度.经度:106.85648 维度:29.566505 定位城市街道:重庆市巴南区s415
+    geolocation.getCurrentPosition(function(r){console.log(r.point)
+        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+            var mk = new BMap.Marker(r.point);
+            map.addOverlay(mk);//标出所在地
+            map.panTo(r.point);//地图中心移动
+           // alert('您的位置：'+r.point.lng+','+r.point.lat);
+			//r.point.lng = '106.85648';
+			//r.point.lat = '29.566505';
+			//经维度获取地址http://api.map.baidu.com/lbsapi/getpoint/index.html
+            var point = new BMap.Point(r.point.lng,r.point.lat);//用所定位的经纬度查找所在地省市街道等信息
+            var gc = new BMap.Geocoder();
+            gc.getLocation(point, function(rs){
+               var addComp = rs.addressComponents; console.log(rs.address);//地址信息
+               //alert(addComp);//弹出所在地址
+			  // var div = document.createElement("div");
+				//div.id = "mDiv";
+				//div.innerHTML = "新元素";
+				//x.appendChild(rs.address);
+				$("#street").append(rs.address);
+
+            });
+        }else {
+            alert('failed'+this.getStatus());
+        }        
+    },{enableHighAccuracy: true})
+</script>
+
+
+</body>
+</html>
